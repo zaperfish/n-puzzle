@@ -1,11 +1,8 @@
-#![allow(dead_code, unused_variables)]
-
 use anyhow::anyhow;
 use anyhow::Result;
 use rand::seq::SliceRandom;
 use std::fmt;
 use std::fmt::Display;
-use std::fmt::Pointer;
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Move {
@@ -215,37 +212,3 @@ fn split_line_with_comment(line: &str) -> (Option<&str>, Option<&str>) {
         },
     )
 }
-
-// fn init_puzzle(file_path: Option<String>) -> Result<NPuzzle> {
-//     let file_string = fs::read_to_string(file_path)?;
-
-//     let mut first_puzzle_line = true;
-//     let mut data: Vec<u8> = Vec::new();
-//     let mut size = 0;
-
-//     for line in file_string.lines() {
-//         if let Some(row) = split_line_with_comment(line).0 {
-//             let row_data: Vec<u8> = row
-//                 .split_whitespace()
-//                 .map(|s| s.parse::<u8>())
-//                 .collect::<Result<Vec<u8>, _>>()?;
-
-//             if first_puzzle_line == true {
-//                 first_puzzle_line = false;
-//                 size = row_data.len();
-//             } else if size != row_data.len() {
-//                 return Err(anyhow!("rows have different length"));
-//             }
-
-//             data.extend(row_data);
-//         } else if first_puzzle_line == false {
-//             break;
-//         }
-//     }
-
-//     if size < 2 || size * size != data.len() {
-//         return Err(anyhow!("invalid puzzle size"));
-//     }
-
-//     Ok(NPuzzle { size, data })
-// }

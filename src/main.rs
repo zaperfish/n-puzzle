@@ -1,9 +1,7 @@
-#![allow(dead_code, unused_imports, unused_variables, unused_mut)]
+#![allow(dead_code, unused_variables)]
 use anyhow::Result;
 use clap::Parser;
 use n_puzzle::heuristics::Heuristic;
-use n_puzzle::node::Node;
-use n_puzzle::npuzzle::Move;
 use n_puzzle::npuzzle::NPuzzle;
 use n_puzzle::solver::Solver;
 use std::time::Instant;
@@ -32,7 +30,7 @@ fn main() -> Result<()> {
 
     println!("{:?}", args);
 
-    let mut npuzzle = if let Some(file_path) = args.file_path {
+    let npuzzle = if let Some(file_path) = args.file_path {
         NPuzzle::from_file(&file_path)?
     } else {
         NPuzzle::new(args.size)
@@ -44,7 +42,7 @@ fn main() -> Result<()> {
     let res = solver.solve(npuzzle.clone())?;
     let elapsed = now.elapsed();
 
-    let solved = Solver::check_solution(npuzzle.clone(), &res)?;
+    let _solved = Solver::check_solution(npuzzle.clone(), &res)?;
     println!(
         "{}\nPuzzle was solved in {} moves and {:.3?}",
         npuzzle,

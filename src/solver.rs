@@ -1,13 +1,10 @@
-#![allow(dead_code, unused_variables, unused_imports)]
+#![allow(dead_code)]
 use std::collections::BinaryHeap;
-use std::collections::HashMap;
 use std::collections::HashSet;
 
-use crate::heuristics;
 use crate::heuristics::Heuristic;
 use crate::heuristics::HeuristicFn;
 use crate::node::Node;
-use crate::npuzzle;
 use crate::npuzzle::Move;
 use crate::npuzzle::NPuzzle;
 use anyhow::anyhow;
