@@ -1,0 +1,12 @@
+# Hey this is some 3x3 Npuzzle with comments
+
+# Lets see if this works
+
+7 3 6# Tight comment
+8 0 2
+1 4 5 # Nicer Spacing
+
+# Some random stuff which shoudln't get parsed at all
+12313
+as asd 1
+#asdf
